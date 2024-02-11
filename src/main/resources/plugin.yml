@@ -2,4 +2,3 @@ name: ShaderPlugin
 version: '${version}'
 main: me.kyuri.shaderplugin.ShaderPlugin
 api-version: '1.20'
-depend: [ ProtocolLib ]

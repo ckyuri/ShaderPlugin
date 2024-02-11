@@ -14,10 +14,9 @@ import org.bukkit.craftbukkit.v1_20_R3.entity.CraftCreeper;
 import org.bukkit.craftbukkit.v1_20_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
+
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -79,9 +78,7 @@ public class CommandShader implements Listener {
             player.setHealth(0);
             player.setRespawnLocation(deathLocations.get(playerId));
             player.spigot().respawn();
-            Bukkit.getScheduler().runTaskLater(ShaderPlugin.getInstance(), () -> {
-                player.spigot().respawn();
-            }, 1);
+            Bukkit.getScheduler().runTaskLater(ShaderPlugin.getInstance(), () -> player.spigot().respawn(), 1);
 
         } else{
             shaderToggles.put(playerId, false);
